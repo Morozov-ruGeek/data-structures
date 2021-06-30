@@ -80,7 +80,6 @@ public class MyArrayList<E extends Comparable<E>> {
         return -1;
     }
 
-
     public boolean isEmpty() {
         return size == 0;
     }
@@ -89,12 +88,10 @@ public class MyArrayList<E extends Comparable<E>> {
         return size;
     }
 
-
     @Override
     public String toString() {
         return Arrays.toString(Arrays.copyOf(list, size));
     }
-
 
     private boolean less(E item1, E item2) {
         return item1.compareTo(item2) < 0;

@@ -15,6 +15,5 @@ public class Main {
         msal.binaryFind(random.nextInt(100000));
         long endTime = System.currentTimeMillis();
         System.out.println("Total execution time: " + (endTime-startTime) + "ms");
-
     }
 }
