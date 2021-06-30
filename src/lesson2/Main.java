@@ -7,16 +7,14 @@ public class Main {
     public static void main(String[] args) {
 
         Random random = new Random();
-        MyArrayList<Integer> mal = new MyArrayList<>();
+        MySortedArrayList<Integer> msal = new MySortedArrayList<>();
         for (int i = 0; i < 10; i++) {
-            mal.add(random.nextInt(20));
+            msal.add(random.nextInt(10000));
         }
-
-        System.out.println(mal);
-
-        mal.bubbleSort();
-
-        System.out.println(mal);
+        long startTime = System.currentTimeMillis();
+        msal.binaryFind(random.nextInt(10000));
+        long endTime = System.currentTimeMillis();
+        System.out.println("Total execution time: " + (endTime-startTime) + "ms");
 
     }
 }
