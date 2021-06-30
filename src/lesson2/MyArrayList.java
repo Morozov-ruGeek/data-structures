@@ -21,14 +21,14 @@ public class MyArrayList<E extends Comparable<E>> {
     }
 
     public void add(E item) {
-        //  проверить переполнение и при необходимости увеличиваем массив на size/2 +1
+        ensureExplicitCapacity(size + 1);
         list[size] = item;
         size++;
     }
 
     public void add(int index, E item) {
-        // проверить корректность index  [0..size]
-        //  проверить переполнение и при необходимости увеличиваем массив на size/2 +1
+        rangeCheck(index);
+        ensureExplicitCapacity(size + 1);
         for (int i = size; i > index; i--) {
             list[i] = list[i - 1];
         }
@@ -40,7 +40,7 @@ public class MyArrayList<E extends Comparable<E>> {
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
-        // проверить корректность index  [0..size)
+        rangeCheck(index);
         for (int i = index; i <= size; i++) {
             list[i] = list[i + 1];
         }
@@ -58,7 +58,7 @@ public class MyArrayList<E extends Comparable<E>> {
     }
 
     public E get(int index) {
-        // проверить корректность index  [0..size)
+        rangeCheck(index);
         return list[index];
     }
 
@@ -142,4 +142,16 @@ public class MyArrayList<E extends Comparable<E>> {
         }
     }
 
+    private void rangeCheck(int index) {
+        if (index <= 0 || index > this.size)
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + this.size);
+    }
+
+    private void ensureExplicitCapacity(int minCapacity) {
+        if (minCapacity - list.length == 0) {
+            int oldCapacity = minCapacity;
+            int newCapacity = size / 2 + 1;
+            list = Arrays.copyOf(list, newCapacity);
+        }
+    }
 }
