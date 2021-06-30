@@ -9,10 +9,10 @@ public class Main {
         Random random = new Random();
         MySortedArrayList<Integer> msal = new MySortedArrayList<>();
         for (int i = 0; i < 10; i++) {
-            msal.add(random.nextInt(10000));
+            msal.add(random.nextInt(100000));
         }
         long startTime = System.currentTimeMillis();
-        msal.binaryFind(random.nextInt(10000));
+        msal.binaryFind(random.nextInt(100000));
         long endTime = System.currentTimeMillis();
         System.out.println("Total execution time: " + (endTime-startTime) + "ms");
 
