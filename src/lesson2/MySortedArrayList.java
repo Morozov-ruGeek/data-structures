@@ -29,7 +29,6 @@ public class MySortedArrayList<E extends Comparable<E>> extends MyArrayList<E> {
                 return mid;
             }
         }
-
         return -1;
     }
 }
