@@ -8,6 +8,5 @@ public class Main {
         SymbolRevers symbolRevers = new SymbolRevers();
         symbolRevers.symbolRevers(str);
         symbolRevers.stringReverse(str);
-
     }
 }

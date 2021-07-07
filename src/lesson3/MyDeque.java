@@ -69,6 +69,7 @@ public class MyDeque<T> {
         return size == list.length;
     }
 
+
 //    todo remake method. add begin and end
     private void reCapacity(int newCapacity){
         T[] tempArr = (T[]) new Object[newCapacity];
