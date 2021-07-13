@@ -16,13 +16,12 @@ public class MyLinkedList<E> implements Iterable<E> {
     }
 
     private class MyIter implements Iterator<E> {
+        MyNode current = new MyNode(null, first);
         private int index;
-        private MyNode lastReturned;
-        private MyNode nextIndex;
 
         @Override
         public boolean hasNext() {
-            return nextIndex != null && index < size;
+            return current.getNext() != null;
         }
 
         @Override
@@ -30,10 +29,8 @@ public class MyLinkedList<E> implements Iterable<E> {
             if (!hasNext())
                 throw new NoSuchElementException();
 
-            lastReturned.setValue(nextIndex.getValue());
-            nextIndex.setValue(nextIndex.getNext().getValue());
-            index++;
-            return lastReturned.getValue();
+            current = current.getNext();
+            return current.getValue();
         }
     }
 
